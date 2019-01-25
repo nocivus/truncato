@@ -136,7 +136,7 @@ class TruncatedSaxDocument < Nokogiri::XML::SAX::Document
 
   def truncate_string string, remaining_length
     if @tail_before_final_tag
-      string[0..remaining_length]
+      string[0..remaining_length] + "..."
     else
       @tail_appended = true
       "#{string[0..remaining_length]}#{tail}"
@@ -145,7 +145,7 @@ class TruncatedSaxDocument < Nokogiri::XML::SAX::Document
 
   def truncate_comment string, remaining_length
     if @tail_before_final_tag
-      string[0..remaining_length]
+      string[0..remaining_length] + "..."
     else
       @tail_appended = true
       "#{string[0..remaining_length]}#{tail}-->"
